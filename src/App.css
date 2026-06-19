@@ -78,10 +78,6 @@
   color: var(--text-primary);
 }
 
-.footer__logo span {
-  color: #ffffff;
-}
-
 .navbar__links {
   display: flex;
   align-items: center;
@@ -2337,8 +2333,9 @@ html[dir="rtl"] .fw-skeleton-card__status-indicator {
 
 /* ===== FOOTER ===== */
 .footer {
-  background: var(--text-primary);
-  color: rgba(255, 255, 255, 0.7);
+  background: var(--bg-alt);
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border);
   padding: 72px 0 0;
   position: relative;
 }
@@ -2354,7 +2351,7 @@ html[dir="rtl"] .fw-skeleton-card__status-indicator {
   grid-template-columns: 320px 1fr;
   gap: 80px;
   padding-bottom: 48px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid var(--border);
 }
 
 [data-theme="dark"] .footer__top {
@@ -2367,7 +2364,7 @@ html[dir="rtl"] .fw-skeleton-card__status-indicator {
   gap: 10px;
   font-weight: 800;
   font-size: 1.1rem;
-  color: white;
+  color: var(--text-primary);
   margin-bottom: 16px;
 }
 
@@ -2378,7 +2375,7 @@ html[dir="rtl"] .fw-skeleton-card__status-indicator {
 .footer__tagline {
   font-size: 0.875rem;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-secondary);
   margin-bottom: 24px;
 }
 
@@ -2394,13 +2391,13 @@ html[dir="rtl"] .fw-skeleton-card__status-indicator {
 .footer__social-link {
   width: 38px;
   height: 38px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-secondary);
   transition: var(--transition-fast);
 }
 
@@ -2434,7 +2431,7 @@ html[dir="rtl"] .fw-skeleton-card__status-indicator {
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: white;
+  color: var(--text-primary);
   margin-bottom: 16px;
 }
 
@@ -2450,7 +2447,7 @@ html[dir="rtl"] .fw-skeleton-card__status-indicator {
 
 .footer__nav-col a {
   font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-secondary);
   display: inline-block;
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), color 0.25s ease;
 }
@@ -2460,7 +2457,7 @@ html[dir="rtl"] .fw-skeleton-card__status-indicator {
 }
 
 .footer__nav-col a:hover {
-  color: var(--accent-light);
+  color: var(--accent);
   transform: translateX(4px);
 }
 
@@ -2470,7 +2467,7 @@ html[dir="rtl"] .fw-skeleton-card__status-indicator {
   justify-content: space-between;
   padding: 24px 0;
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.35);
+  color: var(--text-muted);
 }
 
 [data-theme="dark"] .footer__bottom {
@@ -2483,7 +2480,7 @@ html[dir="rtl"] .fw-skeleton-card__status-indicator {
 }
 
 .footer__bottom-links a {
-  color: rgba(255, 255, 255, 0.35);
+  color: var(--text-muted);
   transition: var(--transition-fast);
 }
 
@@ -2492,7 +2489,7 @@ html[dir="rtl"] .fw-skeleton-card__status-indicator {
 }
 
 .footer__bottom-links a:hover {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-secondary);
 }
 
 [data-theme="dark"] .footer__bottom-links a:hover {
@@ -2574,8 +2571,24 @@ html[dir="rtl"] .fw-skeleton-card__status-indicator {
 
 @media (max-width: 768px) {
   .navbar__links { display: none; }
-  .navbar__actions { display: none; }
-  .navbar__hamburger { display: flex; }
+  .navbar__actions .btn { display: none; }
+  /* Default LTR (English): Actions on Left, Hamburger on Right */
+  .navbar__actions { gap: 8px; z-index: 10; order: 1; }
+  .navbar__hamburger { display: flex; z-index: 10; order: 2; }
+  
+  /* RTL (Arabic): Keep Actions on Left, Hamburger on Right */
+  html[dir="rtl"] .navbar__actions, html.rtl .navbar__actions { order: 2; }
+  html[dir="rtl"] .navbar__hamburger, html.rtl .navbar__hamburger { order: 1; }
+
+  .navbar__inner {
+    position: relative;
+    justify-content: space-between;
+  }
+  .navbar__logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
   .services__grid { grid-template-columns: 1fr; }
   .sp-grid { grid-template-columns: 1fr; }
   .packages__grid { grid-template-columns: 1fr; }

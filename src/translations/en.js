@@ -78,7 +78,7 @@ const en = {
       { number: '01', title: 'Discovery',    desc: 'We start with a deep-dive into your business — your goals, audience, competitors, and current position. This shapes every decision.' },
       { number: '02', title: 'Strategy',     desc: 'We map out the sitemap, user flow, and conversion strategy. Every page has a purpose, every element earns its place.' },
       { number: '03', title: 'Design',       desc: 'We craft pixel-perfect UI designs in Figma. You review, give feedback, and we refine until it feels exactly right.' },
-      { number: '04', title: 'Development',  desc: 'We build with clean, fast, scalable code — React, Next.js, or custom stacks. Mobile-first, performance-optimized, SEO-ready.' },
+      { number: '04', title: 'Development',  desc: 'We build with clean, fast, scalable code — React, Next.js, node.js,or custom stacks. Mobile-first, performance-optimized, SEO-ready.' },
       { number: '05', title: 'Launch',       desc: 'We deploy, test across all devices, set up analytics, and hand off full documentation. Your site goes live ready to grow.' },
     ],
   },

@@ -145,25 +145,6 @@ export default function Navbar() {
                   {t('nav.cta')}
                 </a>
               </li>
-              <li>
-                <div className="lang-switch" style={{ margin: '16px auto 0 auto' }}>
-                  <button
-                    className={`lang-switch__btn ${language === 'en' ? 'lang-switch__btn--active' : ''}`}
-                    onClick={() => { setLanguage('en'); setMobileOpen(false); }}
-                    aria-label="Set language to English"
-                  >
-                    EN
-                  </button>
-                  <button
-                    className={`lang-switch__btn ${language === 'ar' ? 'lang-switch__btn--active' : ''}`}
-                    onClick={() => { setLanguage('ar'); setMobileOpen(false); }}
-                    aria-label="Set language to Arabic"
-                  >
-                    AR
-                  </button>
-                  <div className={`lang-switch__slider lang-switch__slider--${language}`} />
-                </div>
-              </li>
             </ul>
           </motion.div>
         )}

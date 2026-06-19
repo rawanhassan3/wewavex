@@ -149,6 +149,10 @@
   overflow: hidden;
 }
 
+.theme-toggle--mobile {
+  display: none;
+}
+
 .theme-toggle--dark .theme-toggle__track {
   background: rgba(79, 157, 148, 0.18);
   border-color: rgba(79, 157, 148, 0.5);
@@ -2618,13 +2622,19 @@ html[dir="rtl"] .fw-skeleton-card__status-indicator {
     order: 2;
   }
 
+  /* Hide desktop theme toggle inside navbar on mobile */
+  .theme-toggle--desktop {
+    display: none !important;
+  }
+
   /* Creative Floating Theme Toggle Slider */
-  .theme-toggle {
+  .theme-toggle--mobile {
+    display: block;
     position: fixed;
     top: 55%;
     right: -16px;
     z-index: 9999;
-    transform: rotate(-90deg);
+    transform: translateY(-50%) rotate(-90deg);
     background: var(--surface);
     padding: 5px;
     width: auto;
@@ -2635,16 +2645,16 @@ html[dir="rtl"] .fw-skeleton-card__status-indicator {
     transition: right 0.3s ease, left 0.3s ease;
   }
   
-  [data-theme="dark"] .theme-toggle {
+  [data-theme="dark"] .theme-toggle--mobile {
     box-shadow: 0 4px 20px rgba(0,0,0,0.4);
     border-color: rgba(120, 140, 220, 0.2);
   }
 
-  html[dir="rtl"] .theme-toggle,
-  html.rtl .theme-toggle {
+  html[dir="rtl"] .theme-toggle--mobile,
+  html.rtl .theme-toggle--mobile {
     right: auto;
     left: -16px;
-    transform: rotate(90deg);
+    transform: translateY(-50%) rotate(90deg);
   }
   .services__grid { grid-template-columns: 1fr; }
   .sp-grid { grid-template-columns: 1fr; }

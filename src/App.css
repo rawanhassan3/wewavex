@@ -2627,13 +2627,18 @@ html[dir="rtl"] .fw-skeleton-card__status-indicator {
     display: none !important;
   }
 
-  /* Creative Floating Theme Toggle Slider */
-  .theme-toggle--mobile {
+  /* Wrapper guarantees position: fixed works properly even on Safari */
+  .theme-toggle-wrapper-mobile {
     display: block;
     position: fixed;
     top: 55%;
     right: -16px;
-    z-index: 9999;
+    z-index: 99999;
+  }
+
+  /* Creative Floating Theme Toggle Slider */
+  .theme-toggle--mobile {
+    display: block;
     transform: translateY(-50%) rotate(-90deg);
     background: var(--surface);
     padding: 5px;
@@ -2650,10 +2655,14 @@ html[dir="rtl"] .fw-skeleton-card__status-indicator {
     border-color: rgba(120, 140, 220, 0.2);
   }
 
-  html[dir="rtl"] .theme-toggle--mobile,
-  html.rtl .theme-toggle--mobile {
+  html[dir="rtl"] .theme-toggle-wrapper-mobile,
+  html.rtl .theme-toggle-wrapper-mobile {
     right: auto;
     left: -16px;
+  }
+
+  html[dir="rtl"] .theme-toggle--mobile,
+  html.rtl .theme-toggle--mobile {
     transform: translateY(-50%) rotate(90deg);
   }
   .services__grid { grid-template-columns: 1fr; }

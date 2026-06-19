@@ -2572,22 +2572,79 @@ html[dir="rtl"] .fw-skeleton-card__status-indicator {
 @media (max-width: 768px) {
   .navbar__links { display: none; }
   .navbar__actions .btn { display: none; }
-  /* Default LTR (English): Actions on Left, Hamburger on Right */
-  .navbar__actions { gap: 8px; z-index: 10; order: 1; }
-  .navbar__hamburger { display: flex; z-index: 10; order: 2; }
-  
-  /* RTL (Arabic): Keep Actions on Left, Hamburger on Right */
-  html[dir="rtl"] .navbar__actions, html.rtl .navbar__actions { order: 2; }
-  html[dir="rtl"] .navbar__hamburger, html.rtl .navbar__hamburger { order: 1; }
-
   .navbar__inner {
-    position: relative;
+    display: flex;
     justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    min-height: 48px;
   }
+
+  .navbar__logo-text {
+    display: none;
+  }
+
   .navbar__logo {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    margin: 0;
+    z-index: 5;
+  }
+
+  .navbar__actions { 
+    display: flex;
+    z-index: 10; 
+    order: 1;
+    padding: 0;
+    border: none;
+    width: auto;
+  }
+  
+  .navbar__hamburger { 
+    display: flex; 
+    z-index: 10;
+    order: 2;
+  }
+  
+  html[dir="rtl"] .navbar__hamburger, 
+  html.rtl .navbar__hamburger { 
+    order: 1;
+  }
+
+  html[dir="rtl"] .navbar__actions, 
+  html.rtl .navbar__actions { 
+    order: 2;
+  }
+
+  /* Creative Floating Theme Toggle Slider */
+  .theme-toggle {
+    position: fixed;
+    top: 55%;
+    right: -16px;
+    z-index: 9999;
+    transform: rotate(-90deg);
+    background: var(--surface);
+    padding: 5px;
+    width: auto;
+    height: auto;
+    border-radius: 40px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    border: 1px solid var(--border);
+    transition: right 0.3s ease, left 0.3s ease;
+  }
+  
+  [data-theme="dark"] .theme-toggle {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    border-color: rgba(120, 140, 220, 0.2);
+  }
+
+  html[dir="rtl"] .theme-toggle,
+  html.rtl .theme-toggle {
+    right: auto;
+    left: -16px;
+    transform: rotate(90deg);
   }
   .services__grid { grid-template-columns: 1fr; }
   .sp-grid { grid-template-columns: 1fr; }
